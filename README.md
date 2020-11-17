@@ -6,7 +6,7 @@
 |--------------------|---------------------|-------------------------|
 | nickname           | string              | null: false             |
 | email              | string              | null: false             |
-| password           | string              | null: false             |
+| encrypted_password | string              | null: false             |
 | family_name        | string              | null: false             |
 | last_name          | string              | null: false             |
 | family_name_kana   | string              | null: false             |
@@ -24,17 +24,17 @@
 |--------------------|------------|-------------------|
 | name               | string     | null: false       |
 | introduction       | text       | null: false       |
-| category           | string     | null: false       |
-| condition          | string     | null: false       |
-| delivery_fee       | string     | null: false       |
-| shipping_area      | string     | null: false       |
-| shipping_days      | string     | null: false       |
+| category           | integer    | null: false       |
+| condition          | integer    | null: false       |
+| delivery_fee       | integer    | null: false       |
+| shipping_area      | integer    | null: false       |
+| shipping_days      | integer    | null: false       |
 | user               | references | foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :purchase
+- has_one :purchase
 
 ## purchases table
 
@@ -54,7 +54,7 @@
 | Column           | Type                | Options                 |
 |------------------|---------------------|-------------------------|
 | postal_code      | string              | null: false             |
-| prefectures      | string              | null: false             |
+| prefectures      | integer             | null: false             |
 | city             | string              | null: false             |
 | home_number      | string              | null: false             |
 | apartment_name   | string              |                         |
@@ -63,4 +63,4 @@
 
 ### Association
 
-- belongs_to :delivery_address
+- belongs_to :purchase
