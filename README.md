@@ -24,11 +24,12 @@
 |--------------------|------------|-------------------|
 | name               | string     | null: false       |
 | introduction       | text       | null: false       |
-| category           | integer    | null: false       |
-| condition          | integer    | null: false       |
-| delivery_fee       | integer    | null: false       |
-| shipping_area      | integer    | null: false       |
-| shipping_days      | integer    | null: false       |
+| category_id        | integer    | null: false       |
+| condition_id       | integer    | null: false       |
+| delivery_fee_id    | integer    | null: false       |
+| shipping_area_id   | integer    | null: false       |
+| shipping_days_id   | integer    | null: false       |
+| price              | integer    | null: false       |
 | user               | references | foreign_key: true |
 
 ### Association
@@ -54,7 +55,7 @@
 | Column           | Type                | Options                 |
 |------------------|---------------------|-------------------------|
 | postal_code      | string              | null: false             |
-| prefectures      | integer             | null: false             |
+| prefectures_id   | integer             | null: false             |
 | city             | string              | null: false             |
 | home_number      | string              | null: false             |
 | apartment_name   | string              |                         |
