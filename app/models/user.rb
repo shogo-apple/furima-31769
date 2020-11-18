@@ -4,22 +4,21 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-         validates :nickname, presence: true
-         validates :birth_date, presence: true
- 
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :nickname, presence: true
+  validates :birth_date, presence: true
+
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
-  
-  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i
+
+  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
   validates :password, presence: true, length: { minimum: 7 }, format: { with: VALID_PASSWORD_REGEX }
 
-  VALID_NAME_REGEX = /\A[ぁ-んァ-ン一-龥]/
+  VALID_NAME_REGEX = /\A[ぁ-んァ-ン一-龥]/.freeze
   validates :last_name, :first_name, presence: true, format: { with: VALID_NAME_REGEX }
-  
-  VALID_KANA_NAME_REGEX = /\A[ァ-ヶー－]+\z/
+
+  VALID_KANA_NAME_REGEX = /\A[ァ-ヶー－]+\z/.freeze
   validates :last_name_kana, :first_name_kana, presence: true, format: { with: VALID_KANA_NAME_REGEX }
-  
+
   has_many :items
   has_many :purchases
-
 end
