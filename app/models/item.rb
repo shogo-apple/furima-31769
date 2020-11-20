@@ -14,7 +14,10 @@ class Item < ApplicationRecord
     validates :name
     validates :introduction
     validates :image
-    validates :price
+    
+    VALID_PRICE_REGEX = /\A[0-9]+\z/
+    validates :price, format: {with: VALID_PRICE_REGEX}, numericality: { only_integer: true, greater_than: 300, less_than: 9999999 }
+    
   end
 
   with_options numericality: { other_than: 1 } do
@@ -24,4 +27,6 @@ class Item < ApplicationRecord
     validates :shipping_area_id
     validates :shipping_day_id
   end
+
+  validates :price, format: { with: /\A[0-9]+\z/ }
 end
