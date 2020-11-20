@@ -10,17 +10,18 @@ class Item < ApplicationRecord
   has_one_attached :image
   has_one :purchase
 
-  validates :category_id, presence: true
-  validates :condition_id, presence: true
-  validates :delivery_fee_id, presence: true
-  validates :shipping_area_id, presence: true
-  validates :shipping_day_id, presence: true
+  with_options presence: true do
+    validates :name
+    validates :introduction
+    validates :image
+    validates :price
+  end
 
-  validates :category_id, numericality: { other_than: 1 }
-  validates :condition_id, numericality: { other_than: 1 }
-  validates :delivery_fee_id, numericality: { other_than: 1 }
-  validates :shipping_area_id, numericality: { other_than: 1 }
-  validates :shipping_day_id, numericality: { other_than: 1 }
-  
-  validates :image, presence: true
+  with_options numericality: { other_than: 1 } do
+    validates :category_id 
+    validates :condition_id
+    validates :delivery_fee_id
+    validates :shipping_area_id
+    validates :shipping_day_id
+  end
 end
