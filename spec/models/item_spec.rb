@@ -73,6 +73,31 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Image can't be blank")
       end
+      it 'category_idが1だと出品できない' do
+        @item.category_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category must be other than 1")
+      end
+      it 'condition_idが1だと出品できない' do
+        @item.condition_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Condition must be other than 1")
+      end
+      it 'delivery_fee_idが1だと出品できない' do
+        @item.delivery_fee_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Delivery fee must be other than 1")
+      end
+      it 'shipping_area_idが1だと出品できない' do
+        @item.shipping_area_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping area must be other than 1")
+      end
+      it 'shipping_day_idが1だと出品できない' do
+        @item.shipping_day_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping day must be other than 1")
+      end
     end
   end
 end
