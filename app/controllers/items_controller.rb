@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!,only: [:new, :create]  #indexは対象外にする
   def index
   end
   
