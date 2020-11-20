@@ -16,7 +16,7 @@ class Item < ApplicationRecord
     validates :image
     
     VALID_PRICE_REGEX = /\A[0-9]+\z/
-    validates :price, format: {with: VALID_PRICE_REGEX}, numericality: { only_integer: true, greater_than: 300, less_than: 9999999 }
+    validates :price, format: {with: VALID_PRICE_REGEX}, numericality: { only_integer: true, greater_than: 299, less_than: 10000000 }
     
   end
 
