@@ -6,11 +6,12 @@ class PurchasesController < ApplicationController
 
   def create
     @purchase_form = PurchaseForm.new(purchase_params)
+    @item = Item.find(params[:item_id])
       if @purchase_form.valid?
         @purchase_form.save
-        redirect_to action: :index
+        redirect_to root_path
       else
-        render action: :index
+        render :index
       end
   end
 
