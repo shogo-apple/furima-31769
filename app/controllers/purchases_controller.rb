@@ -1,5 +1,5 @@
 class PurchasesController < ApplicationController
-  def new
+  def index
     @purchase_form = PurchaseForm.new
   end
 
@@ -16,5 +16,6 @@ class PurchasesController < ApplicationController
   private
  def purchase_params
   params.require(:purchase_form).permit(:user, :item, :postal_code, :shipping_area_id, :city, :home_number, :apartment_name, :phone_number)
+ end
 
 end
