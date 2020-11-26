@@ -1,6 +1,7 @@
 class PurchasesController < ApplicationController
   def index
     @purchase_form = PurchaseForm.new
+    @item = Item.find(params[:item_id])
   end
 
   def create
@@ -9,7 +10,7 @@ class PurchasesController < ApplicationController
         @purchase_form.save
         redirect_to action: :index
       else
-        render action: :new
+        render action: :index
       end
   end
 
