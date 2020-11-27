@@ -6,7 +6,7 @@ class CreateDeliveryAddresses < ActiveRecord::Migration[6.0]
       t.string     :city,             null: false
       t.string     :home_number,      null: false
       t.string     :apartment_name,   null: false
-      t.string     :phpne_number,     null: false
+      t.string     :phone_number,     null: false
       t.references :purchase,         foreign_key: true
 
       t.timestamps

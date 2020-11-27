@@ -15,9 +15,9 @@ class PurchaseForm
 
   def save
     # purchasの情報を保存
-    Purchase.create(user: user, item: item)
+    purchase = Purchase.create(user: user, item: item)
     # delivery_addressの情報を保存
-    DeliveryAddress.create(postal_code: postal_code, shipping_id: shipping_id, city: city, home_number: home_number, apartment_name: apartment_name, phone_number: phone_number, purchase: purchase, user_id: user.id)
+    DeliveryAddress.create(postal_code: postal_code, shipping_area_id: shipping_area_id, city: city, home_number: home_number, apartment_name: apartment_name, phone_number: phone_number, purchase_id: purchase.id)
   end
 
 
