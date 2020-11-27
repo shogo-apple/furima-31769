@@ -1,6 +1,6 @@
 class PurchaseForm
   include ActiveModel::Model
-  attr_accessor :user, :item, :postal_code, :shipping_area_id, :city, :home_number, :apartment_name, :phone_number
+  attr_accessor :user_id, :item_id, :postal_code, :shipping_area_id, :city, :home_number, :apartment_name, :phone_number, :token
 
   with_options presence: true do
     validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
@@ -15,7 +15,7 @@ class PurchaseForm
 
   def save
     # purchasの情報を保存
-    purchase = Purchase.create(user: user, item: item)
+    purchase = Purchase.create(user_id: user_id, item_id: item_id)
     # delivery_addressの情報を保存
     DeliveryAddress.create(postal_code: postal_code, shipping_area_id: shipping_area_id, city: city, home_number: home_number, apartment_name: apartment_name, phone_number: phone_number, purchase_id: purchase.id)
   end
