@@ -9,6 +9,11 @@ RSpec.describe PurchaseForm, type: :model do
       it 'postal_code、shipping_area_id、city、home_number、phone_number、tokenが存在すれば購入できる。' do
         expect(@purchase_form).to be_valid
       end
+      it 'apartment_nameは空でも購入できる' do
+        @purchase_form.apartment_name = nil
+        expect(@purchase_form).to be_valid
+      end
+
     end
     context '購入がうまくいかない時' do
       it 'postal_codeが空だと保存できないこと' do
