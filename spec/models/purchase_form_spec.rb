@@ -42,7 +42,7 @@ RSpec.describe PurchaseForm, type: :model do
         expect(@purchase_form.errors.full_messages).to include('Postal code is invalid')
       end
 
-      it 'phone_numberが11桁以下出ないと保存できないこと' do
+      it 'phone_numberが11桁以下でないと保存できないこと' do
         @purchase_form.phone_number = '123456789012'
         @purchase_form.valid?
         expect(@purchase_form.errors.full_messages).to include('Phone number is too long (maximum is 11 characters)')
