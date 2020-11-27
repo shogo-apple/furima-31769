@@ -6,7 +6,7 @@ class PurchaseForm
     validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/ }
     validates :city
     validates :home_number
-    # validates :phone_number,numericality: { only_integer: true, length: { minimum: 11 } }
+  
     validates :phone_number, length: { maximum: 11 }
     validates :token
   end
