@@ -71,7 +71,7 @@ gem 'image_processing', '~> 1.2'
 gem 'active_hash'
 
 group :production do
-  gem 'rails_12factor'
+  gem 'unicorn', '5.4.1'
 end
 
 gem 'payjp'
